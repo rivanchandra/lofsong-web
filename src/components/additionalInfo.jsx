@@ -54,7 +54,7 @@ const AdditionSettings = (props) => {
             <div
                 className="songName">
 
-                <motion.div
+                {/* <motion.div
                     animate={{ x: transitionValue }}
                     transition={{ delay: 1 }}
                     className="radioStationTitle"
@@ -64,7 +64,7 @@ const AdditionSettings = (props) => {
                     <div className="socialsContainer">
                         <a href={props.youtube}> <img src={youtube} className="socialIcons" alt="" />         </a>
                     </div>
-                </motion.div>
+                </motion.div> */}
 
 
             </div>

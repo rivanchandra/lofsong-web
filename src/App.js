@@ -12,6 +12,7 @@ import volumeOn from './images/volumeOn.png'
 import mute from './images/mute.png'
 import { motion } from "framer-motion"
 import ReactPlayer from 'react-player'
+import screenfull from 'screenfull';
 
 let lastPlayedVolume = 0;
 
@@ -224,6 +225,10 @@ function App() {
     setBtnClass("PlayPause2")
     setBtnClass2("playBtn2")
   }
+  
+  const handleClickFullscreen = () => {
+      screenfull.request();
+  }
 
   return (
 
@@ -234,7 +239,7 @@ function App() {
       <div className="radioContainer">
 
         <div className="logo">
-          StudyBeats
+          Listen Music
         </div>
         <div className="subHeading">
 
@@ -242,20 +247,17 @@ function App() {
         <div className="radioStationsContainer">
            
         <RadioStations
-        Ambient={AmbientRenders}
-        Anime={animeVibe}
-        Astral={astralThrob}
-        ChillHop={ChillHiphop}
-        Cow={chilledCow}
-        Cloud={CloudHop}
-        Ivy={IvyRecords}
-        High={HFiveGOneFunc}
-        Lofi={LofiGirlVideo}
-        Study={StudyMD}
-        Jazz={theJazzHopCafe}
-
-        
-
+          Ambient={AmbientRenders}
+          Anime={animeVibe}
+          Astral={astralThrob}
+          ChillHop={ChillHiphop}
+          Cow={chilledCow}
+          Cloud={CloudHop}
+          Ivy={IvyRecords}
+          High={HFiveGOneFunc}
+          Lofi={LofiGirlVideo}
+          Study={StudyMD}
+          Jazz={theJazzHopCafe}
         />
 
         </div>
@@ -265,10 +267,9 @@ function App() {
             <motion.div
               whileHover={{ scale: 1.09 }}
               whileTap={{ scale: 0.9 }}
-              onClick={() => { window.open("https://github.com/adamPatrick12") }}
+              onClick={() => { window.open("https://github.com/rivanchandra") }}
               className="link">
               <img className="githubLogo" src={github} alt="" />
-              Github
             </motion.div>
 
            
@@ -278,7 +279,7 @@ function App() {
       </div>
       <div className="audioControlContainer">
         <div className="audioControl">
-
+          <button onClick={()=>handleClickFullscreen()}>Fullscreen</button>
           <motion.div
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.9 }}
@@ -308,10 +309,13 @@ function App() {
 
       </div>
       <div className={pauseScreen}>
-            <PauseImage/>
-        <p style={{ marginTop: "0rem" }}>Music Paused</p>
+            {/* <PauseImage/>
+        <p style={{ marginTop: "0rem" }}>Music Paused</p> */}
       </div>
-      <AdditionSettings youtube={youtubeChannal} radio={stationName} />
+      <AdditionSettings 
+        // youtube={youtubeChannal}
+        radio={stationName} 
+      />
       <div class="videoContainer">
           <ReactPlayer
           className="vid"

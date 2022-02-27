@@ -35,7 +35,6 @@ html, body {
 .radioStationsContainer{
   width: 99%;
   height: 70%;
-  box-shadow: 1px 0px 0 white;
   text-align: center;
   display: flex;
   justify-content: end;
