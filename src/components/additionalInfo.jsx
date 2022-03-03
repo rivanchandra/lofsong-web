@@ -1,9 +1,9 @@
 import React from "react";
 import rain from '../images/rain.png'
 import { useEffect, useState } from 'react'
-import RainASMR from '../Sounds/rain.mp3'
-import OceanASMR from '../Sounds/Ocean.mp3'
-import whiteNoiseASMR from '../Sounds/whiteNoise.mp3'
+import RainASMR from '../sounds/rain.mp3'
+import OceanASMR from '../sounds/Ocean.mp3'
+import whiteNoiseASMR from '../sounds/whiteNoise.mp3'
 import waves from '../images/waves.png'
 import youtube from '../images/youtube.png'
 import WhiteNoise from '../images/whiteNoise.png'
