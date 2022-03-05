@@ -5,16 +5,24 @@ import AdditionSettings from './components/additionalInfo'
 import PauseImage from './components/pauseImage'
 import Loading from './components/loadingImage'
 import RadioStations from './components/radioStation'
+import { motion } from "framer-motion"
+import ReactPlayer from 'react-player'
+import screenfull from 'screenfull';
+
 import github from './images/github.png'
 import play from './images/playBtn.png'
 import pauseImg from './images/pause.png'
 import volumeOn from './images/volumeOn.png'
 import mute from './images/mute.png'
 import fullscreen from './images/fullscreen.png';
-import { motion } from "framer-motion"
-import ReactPlayer from 'react-player'
-import screenfull from 'screenfull';
-import workday from './videos/workday.mp4';
+import compress from './images/compress.png';
+import moon from './images/moon.png'
+import sun from './images/sun.png'
+
+import chillday from './videos/chillday.mp4';
+import chillnight from './videos/chillnight.mp4';
+import chillrainyday from './videos/chillrainyday.mp4';
+import chillrainynight from './videos/chillrainynight.mp4';
 import and_so_it_begins from './musics/and_so_it_begins.mp3';
 
 let lastPlayedVolume = 0;
@@ -22,25 +30,31 @@ let lastPlayedVolume = 0;
 function App() {
 
 
-  const [BtnClass, setBtnClass] = useState("PlayPause2")           //pause play change
-  const [BtnClass2, setBtnClass2] = useState("playBtn2")
-  const [playPauseImg, setPlayPause] = useState(pauseImg)
+  const [BtnClass, setBtnClass] = useState("PlayPause")           //pause play change
+  const [BtnClass2, setBtnClass2] = useState("playBtn")
+  const [playPauseImg, setPlayPause] = useState(play)
 
   const [muteCheck, setUnmute] = useState("volumeOn")             //unmute/mute change
   const [muteCheck2, setUnmute2] = useState("audioOnImg")
   const [volumeImg, setVolumeImg] = useState(volumeOn)
 
-  const [livestream, playLiveStream] = useState(true)
+  const [livestream, playLiveStream] = useState(false)
   const [pauseScreen, setPauseScreen] = useState("pauseScreen")
   const [currentLivestream, setLivestream] = useState(and_so_it_begins)
 
-  const [stationName, setStationName] = useState("LofiGirl")
+  const [weather, setWeather] = useState(sun);
 
+  const [stationName, setStationName] = useState("And so it begins")
  
   const [volume, setVolume] = useState(1)
 
+  const [rain, setRain] = useState(false);
+
 
   const [youtubeChannal, setYoutubeChannal] = useState('')
+
+  const [background, setBackground] = useState(chillday);
+  const [fullscreenIcon, setFullscreenIcon] = useState(fullscreen);
 
 
 
@@ -90,15 +104,47 @@ function App() {
     playLiveStream(false)
   }
 
-  const [video, setVideo] = useState(`//www.youtube.com/embed/TURbeWK2wwg?autoplay=1&mute=1&start=1`)
+  const handleChangeBackground  = () => {
+    if(weather === sun)
+    {
+      rain === false?setBackground(chillnight):setBackground(chillrainynight);
+      setWeather(moon);
+    }
+    else if(weather === moon)
+    {
+      rain === false?setBackground(chillday):setBackground(chillrainyday)
+      setWeather(sun);
+    }
+  }
 
-
+  const changeRain = (data) => {
+    console.log('data', data);
+    if(weather === moon)
+    {
+      data === false?setBackground(chillnight):setBackground(chillrainynight);
+    }
+    else if(weather === sun)
+    {
+      data === false?setBackground(chillday):setBackground(chillrainyday)
+    }
+    setRain(data);
+  }
 
   // <------------- Radio Change section -------------->
-
-  const LofiGirlVideo = () => {
-    setVideo(and_so_it_begins)
-    setStationName("LofiGirl")
+  const data = [
+    {
+      setStationName:"And so it begins",
+      setYoutubeChannal:and_so_it_begins,
+      setLivestream:and_so_it_begins,
+      playLiveStream:true,
+      setPauseScreen:"unpauseScreen",
+      setPlayPause:pauseImg,
+      setBtnClass:"PlayPause2",
+      setBtnClass2:"playBtn2"
+    }
+  ]
+  const andSoItBegins = () => {
+    setStationName("And so it begins")
     setYoutubeChannal(and_so_it_begins)
     setLivestream(and_so_it_begins)
     playLiveStream(true)
@@ -109,7 +155,16 @@ function App() {
   }
   
   const handleClickFullscreen = () => {
+    if(screenfull.isFullscreen)
+    {
+      screenfull.exit();
+      setFullscreenIcon(fullscreen);
+    }
+    else
+    {
       screenfull.request();
+      setFullscreenIcon(compress);
+    }
   }
 
   return (
@@ -128,9 +183,10 @@ function App() {
         </div>
         <div className="radioStationsContainer">
            
-        <RadioStations
-          Lofi={LofiGirlVideo}
-        />
+        {/* <RadioStations
+          Lofi={andSoItBegins}
+          data={data}
+        /> */}
 
         </div>
         <div className='socialsContainer2'>
@@ -152,10 +208,16 @@ function App() {
       <div className="audioControlContainer">
         <div className="audioControl">
           <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={()=>handleClickFullscreen()} className={muteCheck}>
-              <img className={muteCheck2} src={fullscreen} alt="" />
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>handleChangeBackground()} className={muteCheck}>
+            <img className="imgSizing" src={weather} alt="" />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>handleClickFullscreen()} className={muteCheck}>
+            <img className="imgSizing" src={fullscreenIcon} alt="" />
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.03 }}
@@ -185,35 +247,35 @@ function App() {
 
 
       </div>
-      <div className={pauseScreen}>
+      {/* <div className={pauseScreen}> */}
             {/* <PauseImage/>
         <p style={{ marginTop: "0rem" }}>Music Paused</p> */}
-      </div>
+      {/* </div> */}
       <AdditionSettings 
         // youtube={youtubeChannal}
-        radio={stationName} 
+        radio={stationName}
+        changeRain={changeRain}
       />
       <div class="videoContainer">
-          <ReactPlayer
-            className="vid"
-            width="140%" 
-            height="140%"
-            loop="true"
-            playing={livestream}
-            volume="mute"
-            url={video} 
-          />
+        <ReactPlayer
+          // className="vid"
+          width="140%" 
+          height="140%"
+          loop="true"
+          playing={livestream}
+          volume="mute"
+          url={background} 
+        />
+        {/* <video className='videoTag' autoPlay loop muted>
+          <source src={background} type='video/mp4' />
+        </video> */}
       </div>
-      <video className='videoTag' autoPlay loop muted>
-          <source src={workday} type='video/mp4' />
-      </video>
-
       <ReactPlayer
         className="liveStreamPlayer"
         playing={livestream}
         volume={volume}
-        url={currentLivestream} />
-
+        url={currentLivestream}
+      />
       <Loading/>
 
 

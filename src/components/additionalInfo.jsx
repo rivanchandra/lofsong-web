@@ -26,7 +26,7 @@ const AdditionSettings = (props) => {
     Rain.volume = rainVolume
     whiteNoise.volume = whiteNoiseVolume
 
-    Rain.play()
+    Rain.play();
     Ocean.play()
     whiteNoise.play()
 
@@ -45,6 +45,10 @@ const AdditionSettings = (props) => {
         setTitleLocation(1000)
     }, [props.radio])
 
+    const rainChange = (event) => {
+        setRainVolume(event);
+        event === 0? props.changeRain(false):props.changeRain(true);
+    }
 
     return (
         <div className="infoContainer">
@@ -54,17 +58,17 @@ const AdditionSettings = (props) => {
             <div
                 className="songName">
 
-                {/* <motion.div
+                <motion.div
                     animate={{ x: transitionValue }}
                     transition={{ delay: 1 }}
                     className="radioStationTitle"
                     style={{ left: TitleLocation }}
                 >
                     {props.radio}
-                    <div className="socialsContainer">
+                    {/* <div className="socialsContainer">
                         <a href={props.youtube}> <img src={youtube} className="socialIcons" alt="" />         </a>
-                    </div>
-                </motion.div> */}
+                    </div> */}
+                </motion.div>
 
 
             </div>
@@ -77,10 +81,9 @@ const AdditionSettings = (props) => {
                         max={1}
                         value={rainVolume}
                         onChange={event => {
-                            setRainVolume(event.target.valueAsNumber)
+                            rainChange(event.target.valueAsNumber)
                         }}
                         step={0.2}
-
                     />
                     <div className="otherSounds">
                         <img src={rain} className="imgSizing" alt="" />

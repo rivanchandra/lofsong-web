@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from "framer-motion"
 import triangle from '../images/playBtn.png'
 
-const RadioStations = ({ Ambient, Anime, Astral, ChillHop, Cow, Cloud, Ivy, High, Lofi, Study, Jazz }) => {
+const RadioStations = ( { data,Ambient, Anime, Astral, ChillHop, Cow, Cloud, Ivy, High, Lofi, Study, Jazz }) => {
     return (
         <div className='radioList'>
 
