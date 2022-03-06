@@ -32,19 +32,25 @@ import chillrainyday from './videos/chillrainyday.mp4';
 import chillrainynight from './videos/chillrainynight.mp4';
 
 //Musics
-import and_so_it_begins from './musics/and_so_it_begins.mp3';
-import bedtime_after_a_coffee from './musics/bedtime_after_a_coffee.mp3';
-import dreams_come_true from './musics/dreams_come_true.mp3';
-import morning_routine from './musics/morning_routine.mp3';
-import embrace from './musics/embrace.mp3';
-import equinox from './musics/equinox.mp3';
-import floating_castle from './musics/floating_castle.mp3';
-import green_tea from './musics/green_tea.mp3';
-import missing_you from './musics/missing_you.mp3';
-import on_my_way from './musics/on_my_way.mp3';
-import still_awake from './musics/still_awake.mp3';
-import wanted from './musics/wanted.mp3';
-import wild_strawberry from './musics/wild_strawberry.mp3';
+// import and_so_it_begins from './musics/and_so_it_begins.mp3';
+// import bedtime_after_a_coffee from './musics/bedtime_after_a_coffee.mp3';
+// import dreams_come_true from './musics/dreams_come_true.mp3';
+// import morning_routine from './musics/morning_routine.mp3';
+// import embrace from './musics/embrace.mp3';
+// import equinox from './musics/equinox.mp3';
+// import floating_castle from './musics/floating_castle.mp3';
+// import green_tea from './musics/green_tea.mp3';
+// import missing_you from './musics/missing_you.mp3';
+// import on_my_way from './musics/on_my_way.mp3';
+// import still_awake from './musics/still_awake.mp3';
+// import wanted from './musics/wanted.mp3';
+// import wild_strawberry from './musics/wild_strawberry.mp3';
+
+//Videos
+// let chillday = "https://drive.google.com/file/d/1vTX_OLXq3V-Oyv3JResCaXltjWPw-uhQ/preview";
+// let chillnight = "https://drive.google.com/file/d/1FtsqcdvjT1gIv2jye2KEQVWa4N8-RliV/preview";
+// let chillrainyday = "https://drive.google.com/file/d/1hep1kgXiDdRfIAdoDMvx9G17iJdVuBQO/preview";
+// let chillrainynight = "https://drive.google.com/file/d/1JMLx8gpxXb7Jz9X9hkUi8pOC0x5LpMDW/preview";
 
 let lastPlayedVolume = 0;
 let first = true;
@@ -54,67 +60,67 @@ function App() {
     {
       id:0,
       stationName:"And so it begins",
-      songName:and_so_it_begins,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/04/And-So-It-Begins-Inspired-By-Crush-Sometimes.mp3",
     },
     {
       id:1,
       stationName:"Bedtime after a coffee",
-      songName:bedtime_after_a_coffee,
+      songName:"https://www.chosic.com/wp-content/uploads/2020/11/barradeen-bedtime-after-a-coffee.mp3",
     },
     {
       id:2,
       stationName:"Dreams come true",
-      songName:dreams_come_true,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/07/purrple-cat-dreams-come-true.mp3",
     },
     {
       id:3,
       stationName:"Morning routine",
-      songName:morning_routine,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/09/Morning-Routine-Lofi-Study-Music.mp3",
     },
     {
       id:4,
       stationName:"Embrace",
-      songName:embrace,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/07/Embrace.mp3",
     },
     {
       id:5,
       stationName:"Equinox",
-      songName:equinox,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/07/purrple-cat-equinox.mp3",
     },
     {
       id:6,
       stationName:"Floating Castle",
-      songName:floating_castle,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/07/purrple-cat-floating-castle.mp3",
     },
     {
       id:7,
       stationName:"Green Tea",
-      songName:green_tea,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/07/purrple-cat-green-tea.mp3",
     },
     {
       id:8,
       stationName:"Missing You",
-      songName:missing_you,
+      songName:"https://www.chosic.com/wp-content/uploads/2022/01/Missing-You.mp3",
     },
     {
       id:9,
       stationName:"On My Way",
-      songName:on_my_way,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/09/On-My-Way-Lofi-Study-Music.mp3",
     },
     {
       id:10,
       stationName:"Still Awake",
-      songName:still_awake,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/09/Still-Awake-Lofi-Study-Music.mp3",
     },
     {
       id:11,
       stationName:"Wanted",
-      songName:wanted,
+      songName:"https://www.chosic.com/wp-content/uploads/2022/01/Wanted.mp3",
     },
     {
       id:12,
       stationName:"Wild Strawberry",
-      songName:wild_strawberry,
+      songName:"https://www.chosic.com/wp-content/uploads/2021/07/purrple-cat-wild-strawberry.mp3",
     },
   ]);
 
@@ -128,12 +134,12 @@ function App() {
 
   const [livestream, playLiveStream] = useState(false)
   const [pauseScreen, setPauseScreen] = useState("pauseScreen")
-  const [currentLivestream, setLivestream] = useState(and_so_it_begins)
+  const [currentLivestream, setLivestream] = useState(musicData[0].songName)
 
   const [weather, setWeather] = useState(sun);
   const [rain, setRain] = useState(false);
 
-  const [stationName, setStationName] = useState("And so it begins")
+  const [stationName, setStationName] = useState(musicData[0].stationName)
  
   const [volume, setVolume] = useState(1)
 
@@ -269,16 +275,16 @@ function App() {
   }
 
   // <------------- Radio Change section -------------->
-  const andSoItBegins = () => {
-    setStationName("And so it begins")
-    setYoutubeChannal(and_so_it_begins)
-    setLivestream(and_so_it_begins)
-    playLiveStream(true)
-    setPauseScreen("unpauseScreen")
-    setPlayPause(pauseImg)
-    setBtnClass("PlayPause2")
-    setBtnClass2("playBtn2")
-  }
+  // const andSoItBegins = () => {
+  //   setStationName("And so it begins")
+  //   setYoutubeChannal(and_so_it_begins)
+  //   setLivestream(and_so_it_begins)
+  //   playLiveStream(true)
+  //   setPauseScreen("unpauseScreen")
+  //   setPlayPause(pauseImg)
+  //   setBtnClass("PlayPause2")
+  //   setBtnClass2("playBtn2")
+  // }
   
   const handleClickFullscreen = () => {
     if(screenfull.isFullscreen)

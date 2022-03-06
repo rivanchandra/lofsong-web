@@ -1,17 +1,17 @@
 import React from "react";
 import rain from '../images/rain.png';
 import { useEffect, useState } from 'react';
-import RainASMR from '../sounds/rain.mp3';
-import OceanASMR from '../sounds/Ocean.mp3';
-import whiteNoiseASMR from '../sounds/whiteNoise.mp3';
+// import RainASMR from './sounds/rain.mp3';
+// import OceanASMR from './sounds/Ocean.mp3';
+// import whiteNoiseASMR from './sounds/whiteNoise.mp3';
 import waves from '../images/waves.png';
 import youtube from '../images/youtube.png';
 import WhiteNoise from '../images/whiteNoise.png';
 import { motion } from "framer-motion";
 
-const Rain = new Audio(RainASMR)
-const Ocean = new Audio(OceanASMR)
-const whiteNoise = new Audio(whiteNoiseASMR)
+const Rain = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-light-rain-atmosphere-2474.mp3")
+const Ocean = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-forest-birds-chirp-ambiance-69.mp3")
+const whiteNoise = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-road-traffic-sound-2463.mp3")
 
 const AdditionSettings = (props) => {
 
