@@ -1,34 +1,122 @@
-import './styles/index.css'
-import './styles/audioControl.css'
-import { useState } from 'react'
-import AdditionSettings from './components/additionalInfo'
-import PauseImage from './components/pauseImage'
-import Loading from './components/loadingImage'
-import RadioStations from './components/radioStation'
-import { motion } from "framer-motion"
-import ReactPlayer from 'react-player'
+import './styles/index.css';
+import './styles/audioControl.css';
+import { useEffect, useState } from 'react';
+import AdditionSettings from './components/additionalInfo';
+import PauseImage from './components/pauseImage';
+import Loading from './components/loadingImage';
+import RadioStations from './components/radioStation';
+import { motion } from "framer-motion";
+import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
+import useStateRef from 'react-usestateref';
 
-import github from './images/github.png'
-import play from './images/playBtn.png'
-import pauseImg from './images/pause.png'
-import volumeOn from './images/volumeOn.png'
-import mute from './images/mute.png'
+//Icons
+import github from './images/github.png';
+import play from './images/playBtn.png';
+import pauseImg from './images/pause.png';
+import volumeOn from './images/volumeOn.png';
+import mute from './images/mute.png';
 import fullscreen from './images/fullscreen.png';
 import compress from './images/compress.png';
-import moon from './images/moon.png'
-import sun from './images/sun.png'
+import moon from './images/moon.png';
+import sun from './images/sun.png';
+import right from './images/right.png';
+import left from './images/left.png';
+import shuffleIcon from './images/shuffle.png';
+import loopIcon from './images/loop.png';
 
+//Videos
 import chillday from './videos/chillday.mp4';
 import chillnight from './videos/chillnight.mp4';
 import chillrainyday from './videos/chillrainyday.mp4';
 import chillrainynight from './videos/chillrainynight.mp4';
+
+//Musics
 import and_so_it_begins from './musics/and_so_it_begins.mp3';
+import bedtime_after_a_coffee from './musics/bedtime_after_a_coffee.mp3';
+import dreams_come_true from './musics/dreams_come_true.mp3';
+import morning_routine from './musics/morning_routine.mp3';
+import embrace from './musics/embrace.mp3';
+import equinox from './musics/equinox.mp3';
+import floating_castle from './musics/floating_castle.mp3';
+import green_tea from './musics/green_tea.mp3';
+import missing_you from './musics/missing_you.mp3';
+import on_my_way from './musics/on_my_way.mp3';
+import still_awake from './musics/still_awake.mp3';
+import wanted from './musics/wanted.mp3';
+import wild_strawberry from './musics/wild_strawberry.mp3';
 
 let lastPlayedVolume = 0;
+let first = true;
 
 function App() {
-
+  const [musicData, setMusicData] = useState([
+    {
+      id:0,
+      stationName:"And so it begins",
+      songName:and_so_it_begins,
+    },
+    {
+      id:1,
+      stationName:"Bedtime after a coffee",
+      songName:bedtime_after_a_coffee,
+    },
+    {
+      id:2,
+      stationName:"Dreams come true",
+      songName:dreams_come_true,
+    },
+    {
+      id:3,
+      stationName:"Morning routine",
+      songName:morning_routine,
+    },
+    {
+      id:4,
+      stationName:"Embrace",
+      songName:embrace,
+    },
+    {
+      id:5,
+      stationName:"Equinox",
+      songName:equinox,
+    },
+    {
+      id:6,
+      stationName:"Floating Castle",
+      songName:floating_castle,
+    },
+    {
+      id:7,
+      stationName:"Green Tea",
+      songName:green_tea,
+    },
+    {
+      id:8,
+      stationName:"Missing You",
+      songName:missing_you,
+    },
+    {
+      id:9,
+      stationName:"On My Way",
+      songName:on_my_way,
+    },
+    {
+      id:10,
+      stationName:"Still Awake",
+      songName:still_awake,
+    },
+    {
+      id:11,
+      stationName:"Wanted",
+      songName:wanted,
+    },
+    {
+      id:12,
+      stationName:"Wild Strawberry",
+      songName:wild_strawberry,
+    },
+  ]);
 
   const [BtnClass, setBtnClass] = useState("PlayPause")           //pause play change
   const [BtnClass2, setBtnClass2] = useState("playBtn")
@@ -43,20 +131,71 @@ function App() {
   const [currentLivestream, setLivestream] = useState(and_so_it_begins)
 
   const [weather, setWeather] = useState(sun);
+  const [rain, setRain] = useState(false);
 
   const [stationName, setStationName] = useState("And so it begins")
  
   const [volume, setVolume] = useState(1)
-
-  const [rain, setRain] = useState(false);
-
 
   const [youtubeChannal, setYoutubeChannal] = useState('')
 
   const [background, setBackground] = useState(chillday);
   const [fullscreenIcon, setFullscreenIcon] = useState(fullscreen);
 
+  const [currentMusic, setcurrentMusic, currentMusicRef] = useStateRef(0);
 
+  const [loop, setLoop, loopRef] = useStateRef(false);
+
+  useEffect(() => {
+    if(first === true)
+    {
+      let tempData = musicData;
+      let result = shuffle(tempData.length);
+      setStationName(tempData[result].stationName);
+      setLivestream(tempData[result].songName);
+      setcurrentMusic(tempData[result].id);
+      first = false;
+    }
+  });
+
+  const nextMusic = () => {
+    let number = currentMusicRef.current===musicData.length-1?0:currentMusicRef.current+1;
+    console.log('number',number);
+    console.log('data', musicData);
+    setStationName(musicData[number].stationName);
+    setLivestream(musicData[number].songName);
+    setcurrentMusic(number);
+  }
+
+  const prevMusic = () => {
+    let number = currentMusicRef.current===0?musicData.length-1:currentMusicRef.current-1;
+    setStationName(musicData[number].stationName);
+    setLivestream(musicData[number].songName);
+    setcurrentMusic(number);
+  }
+
+  const suffleMusic = () => {
+    let tempData = musicData;
+    let result = shuffle(tempData.length);
+    setStationName(tempData[result].stationName);
+    setLivestream(tempData[result].songName);
+    setcurrentMusic(tempData.indexOf(tempData[result]));
+  }
+
+  function shuffle(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  const loopFunction = () => {
+    if(loopRef.current === false)
+    {
+      setLoop(true);
+    }
+    else
+    {
+      setLoop(false);
+    }
+  }
 
   const handlePausePlaySwitch = (e) => {
     let className = e.target.className
@@ -118,7 +257,6 @@ function App() {
   }
 
   const changeRain = (data) => {
-    console.log('data', data);
     if(weather === moon)
     {
       data === false?setBackground(chillnight):setBackground(chillrainynight);
@@ -131,18 +269,6 @@ function App() {
   }
 
   // <------------- Radio Change section -------------->
-  const data = [
-    {
-      setStationName:"And so it begins",
-      setYoutubeChannal:and_so_it_begins,
-      setLivestream:and_so_it_begins,
-      playLiveStream:true,
-      setPauseScreen:"unpauseScreen",
-      setPlayPause:pauseImg,
-      setBtnClass:"PlayPause2",
-      setBtnClass2:"playBtn2"
-    }
-  ]
   const andSoItBegins = () => {
     setStationName("And so it begins")
     setYoutubeChannal(and_so_it_begins)
@@ -201,7 +327,7 @@ function App() {
             </motion.div>
 
            
-            
+            {console.log('current', currentMusic)}
           </div>
         </div>
       </div>
@@ -220,10 +346,34 @@ function App() {
             <img className="imgSizing" src={fullscreenIcon} alt="" />
           </motion.div>
           <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>prevMusic()} className={muteCheck}>
+            <img className="imgSizing" src={left} alt="" />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>suffleMusic()} className={muteCheck}>
+            <img className="imgSizing" src={shuffleIcon} alt="" />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>nextMusic()} className={muteCheck}>
+            <img className="imgSizing" src={right} alt="" />
+          </motion.div>
+          <motion.div
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.9 }}
             onClick={handlePausePlaySwitch} className={BtnClass}>
             <img src={playPauseImg} className={BtnClass2} alt="" />
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>loopFunction()} className={muteCheck}>
+            <img id={loopRef.current?"spin-loop":''} className={'imgSizing'} src={loopIcon} alt="" />
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.09 }}
@@ -275,19 +425,11 @@ function App() {
         playing={livestream}
         volume={volume}
         url={currentLivestream}
+        onEnded={nextMusic}
+        loop={loopRef.current}
       />
       <Loading/>
-
-
     </div>
-
-
-
-
-
-
-
-
   )
 }
 
