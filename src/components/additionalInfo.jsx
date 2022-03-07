@@ -8,10 +8,11 @@ import waves from '../images/waves.png';
 import youtube from '../images/youtube.png';
 import WhiteNoise from '../images/whiteNoise.png';
 import { motion } from "framer-motion";
+import ReactPlayer from 'react-player';
 
-const Rain = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-light-rain-atmosphere-2474.mp3")
-const Ocean = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-forest-birds-chirp-ambiance-69.mp3")
-const whiteNoise = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-road-traffic-sound-2463.mp3")
+// const Rain = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-light-rain-atmosphere-2474.mp3")
+// const Ocean = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-forest-birds-chirp-ambiance-69.mp3")
+// const whiteNoise = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-road-traffic-sound-2463.mp3")
 
 const AdditionSettings = (props) => {
 
@@ -22,13 +23,13 @@ const AdditionSettings = (props) => {
     const [transitionValue, setTransitionValue] = useState(0)
     const [TitleLocation, setTitleLocation] = useState(350)
 
-    Ocean.volume = oceanVolume
-    Rain.volume = rainVolume
-    whiteNoise.volume = whiteNoiseVolume
+    // Ocean.volume = oceanVolume
+    // Rain.volume = rainVolume
+    // whiteNoise.volume = whiteNoiseVolume
 
-    Rain.play();
-    Ocean.play()
-    whiteNoise.play()
+    // Rain.play();
+    // Ocean.play()
+    // whiteNoise.play()
 
 
     const setTransition = () => {
@@ -51,6 +52,31 @@ const AdditionSettings = (props) => {
     }
 
     return (
+			<>
+				<ReactPlayer
+					style={{widht:"0px"}}
+					className="rain"
+					playing={true}
+					volume={rainVolume}
+					url={"https://assets.mixkit.co/sfx/preview/mixkit-light-rain-atmosphere-2474.mp3"}
+					loop={true}
+				/>
+				<ReactPlayer
+					style={{widht:"0px"}}
+					className="bird"
+					playing={true}
+					volume={oceanVolume}
+					url={"https://assets.mixkit.co/sfx/preview/mixkit-forest-birds-chirp-ambiance-69.mp3"}
+					loop={true}
+				/>
+				<ReactPlayer
+					style={{widht:"0px"}}
+					className="wind"
+					playing={true}
+					volume={whiteNoiseVolume}
+					url={"https://assets.mixkit.co/sfx/preview/mixkit-road-traffic-sound-2463.mp3"}
+					loop={true}
+				/>
         <div className="infoContainer">
             <div className="time">
 
@@ -125,6 +151,7 @@ const AdditionSettings = (props) => {
                 </div>
             </div>
         </div>
+			</>
     )
 
 }
