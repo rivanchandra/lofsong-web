@@ -15,7 +15,8 @@ import wild_strawberry from '../musics/wild_strawberry.mp3';
 export const slow = [
     {
       stationName:"And so it begins",
-      songName: and_so_it_begins
+      songName: "https://youtu.be/tx_1peXyXa0"
+      // songName: and_so_it_begins
     },
     {
       stationName:"Bedtime after a coffee",
@@ -35,23 +36,28 @@ export const slow = [
     },
     {
       stationName:"Equinox",
-      songName: equinox
+      songName: "https://youtu.be/nA2KMbBe6Lk"
+      // songName: equinox
     },
     {
       stationName:"Floating Castle",
-      songName: floating_castle
+      songName: "https://youtu.be/X2vq4JWpdrE"
+      // songName: floating_castle
     },
     {
       stationName:"Green Tea",
-      songName: green_tea
+      songName: "https://youtu.be/mBpCH3sXcIg"
+      // songName: green_tea
     },
     {
       stationName:"Missing You",
-      songName: missing_you
+      songName: "https://youtu.be/pjH7mQBR0mQ"
+      // songName: missing_you
     },
     {
       stationName:"On My Way",
-      songName: on_my_way
+      songName: "https://youtu.be/hyjJlZimEyg"
+      // songName: on_my_way
     },
     {
       stationName:"Still Awake",
@@ -59,10 +65,12 @@ export const slow = [
     },
     {
       stationName:"Wanted",
-      songName: wanted
+      songName: "https://youtu.be/7tK7L3H_qEs"
+      // songName: wanted
     },
     {
       stationName:"Wild Strawberry",
-      songName: wild_strawberry
+      songName: "https://youtu.be/ZQE6i1So988"
+      // songName: wild_strawberry
     },
   ];

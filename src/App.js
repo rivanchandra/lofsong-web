@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
 import useStateRef from 'react-usestateref';
+import Tooltip from '@mui/material/Tooltip';
 
 //Icons
 import github from './images/github.png';
@@ -269,49 +270,65 @@ function App() {
             whileHover={{ scale: 1.09 }}
             whileTap={{ scale: 0.9 }}
             onClick={()=>handleChangeBackground()} className={muteCheck}>
-            <img className="imgSizing" src={weather} alt="" />
+              <Tooltip title="Weather" placement="top">
+                <img className="imgSizing" src={weather} alt="" />
+              </Tooltip>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.09 }}
             whileTap={{ scale: 0.9 }}
             onClick={()=>handleClickFullscreen()} className={muteCheck}>
-            <img className="imgSizing" src={fullscreenIcon} alt="" />
+              <Tooltip title="Full Screen" placement="top">
+                <img className="imgSizing" src={fullscreenIcon} alt="" />
+              </Tooltip>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.09 }}
             whileTap={{ scale: 0.9 }}
             onClick={()=>prevMusic()} className={muteCheck}>
-            <img className="imgSizing" src={left} alt="" />
+              <Tooltip title="Previous" placement="top">
+                <img className="imgSizing" src={left} alt="" />
+              </Tooltip>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.09 }}
             whileTap={{ scale: 0.9 }}
             onClick={()=>suffleMusic()} className={muteCheck}>
-            <img className="imgSizing" src={shuffleIcon} alt="" />
+              <Tooltip title="Shuffle" placement="top">
+                <img className="imgSizing" src={shuffleIcon} alt="" />
+              </Tooltip>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.09 }}
             whileTap={{ scale: 0.9 }}
             onClick={()=>nextMusic()} className={muteCheck}>
-            <img className="imgSizing" src={right} alt="" />
+              <Tooltip title="Next" placement="top">
+                <img className="imgSizing" src={right} alt="" />
+              </Tooltip>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.9 }}
             onClick={handlePausePlaySwitch} className={BtnClass}>
-            <img src={playPauseImg} className={BtnClass2} alt="" />
+              <Tooltip title={BtnClass2==="playBtn"?"Play":"Pause"} placement="top">
+                <img src={playPauseImg} className={BtnClass2} alt="" />
+              </Tooltip>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.09 }}
             whileTap={{ scale: 0.9 }}
             onClick={()=>loopFunction()} className={muteCheck}>
-            <img id={loopRef.current?"spin-loop":''} className={'imgSizing'} src={loopIcon} alt="" />
+              <Tooltip title="Loop This Song" placement="top">
+                <img id={loopRef.current?"spin-loop":''} className={'imgSizing'} src={loopIcon} alt="" />
+              </Tooltip>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.09 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleMute} className={muteCheck}>
-            <img className={muteCheck2} src={volumeImg} alt="" />
+              <Tooltip title="Sound" placement="top">
+                <img className={muteCheck2} src={volumeImg} alt="" />
+              </Tooltip>
           </motion.div>
           <div >
             <input className="volumeDial"
