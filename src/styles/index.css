@@ -32,6 +32,14 @@ html, body {
   align-content: flex-end;
 }
 
+.radioContainer-mobile{
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  align-content: flex-end;
+  margin-top: 50%
+}
+
 .radioStationsContainer{
   width: 99%;
   height: 70%;
@@ -124,6 +132,24 @@ html, body {
   z-index: 1;
 }
 
+.mobile-logo{
+  width: 10%;
+  height: 10%;
+  text-align: center;
+  font-size: 32px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  transform: scale(1, 0.9);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
 .subHeading{
   width: 99%;
   height: 7%;
@@ -180,6 +206,19 @@ html, body {
   flex-direction: column;
   justify-content: end;
   margin-bottom: 5rem;
+}
+
+.songName-mobile{
+  min-width: 100%;
+  height: 650%;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-bottom: 5rem;
+  margin-left: -250%;
 }
 
 

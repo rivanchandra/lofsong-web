@@ -1,16 +1,16 @@
-import and_so_it_begins from '../musics/and_so_it_begins.mp3';
-import bedtime_after_a_coffee from '../musics/bedtime_after_a_coffee.mp3';
-import dreams_come_true from '../musics/dreams_come_true.mp3';
-import morning_routine from '../musics/morning_routine.mp3';
-import embrace from '../musics/embrace.mp3';
-import equinox from '../musics/equinox.mp3';
-import floating_castle from '../musics/floating_castle.mp3';
-import green_tea from '../musics/green_tea.mp3';
-import missing_you from '../musics/missing_you.mp3';
-import on_my_way from '../musics/on_my_way.mp3';
-import still_awake from '../musics/still_awake.mp3';
-import wanted from '../musics/wanted.mp3';
-import wild_strawberry from '../musics/wild_strawberry.mp3';
+// import and_so_it_begins from '../musics/and_so_it_begins.mp3';
+// import bedtime_after_a_coffee from '../musics/bedtime_after_a_coffee.mp3';
+// import dreams_come_true from '../musics/dreams_come_true.mp3';
+// import morning_routine from '../musics/morning_routine.mp3';
+// import embrace from '../musics/embrace.mp3';
+// import equinox from '../musics/equinox.mp3';
+// import floating_castle from '../musics/floating_castle.mp3';
+// import green_tea from '../musics/green_tea.mp3';
+// import missing_you from '../musics/missing_you.mp3';
+// import on_my_way from '../musics/on_my_way.mp3';
+// import still_awake from '../musics/still_awake.mp3';
+// import wanted from '../musics/wanted.mp3';
+// import wild_strawberry from '../musics/wild_strawberry.mp3';
 
 export const slow = [
     {
@@ -20,19 +20,22 @@ export const slow = [
     },
     {
       stationName:"Bedtime after a coffee",
-      songName: bedtime_after_a_coffee
+      songName: "https://youtu.be/PtR2jucCxS4"
+      // songName: bedtime_after_a_coffee
     },
     {
       stationName:"Dreams come true",
-      songName: dreams_come_true
+      // songName: dreams_come_true
     },
     {
       stationName:"Morning routine",
-      songName: morning_routine
+      songName: "https://youtu.be/0AmoVDaCwYI"
+      // songName: morning_routine
     },
     {
       stationName:"Embrace",
-      songName: embrace
+      songName: "https://youtu.be/NPZAqTJq6rI"
+      // songName: embrace
     },
     {
       stationName:"Equinox",
@@ -61,7 +64,8 @@ export const slow = [
     },
     {
       stationName:"Still Awake",
-      songName: still_awake
+      songName: "https://youtu.be/W5PTv19qoBo"
+      // songName: still_awake
     },
     {
       stationName:"Wanted",
@@ -73,4 +77,12 @@ export const slow = [
       songName: "https://youtu.be/ZQE6i1So988"
       // songName: wild_strawberry
     },
+    {
+      stationName:"Wish You Were Here",
+      songName: "https://youtu.be/1B_SFLehxZc"
+    },
+    {
+      stationName:"Hot Coffee",
+      songName: "https://youtu.be/qbbADd5ZKCo"
+    }
   ];

@@ -24,6 +24,21 @@
     /* margin-left: 90%; */
   }
 
+  .audioControl-mobile{
+    width: 99%;
+    height: 20vh;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: auto;
+    z-index: 1;
+    margin-left: -280%;
+  }
+
   
   .audioImgSize{
     min-width: 20px;
