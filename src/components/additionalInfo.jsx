@@ -60,88 +60,76 @@ const AdditionSettings = (props) => {
 	return (
 		<>
 			<div className="infoContainer">
-				<BrowserView>
-					<div className="songName">
-						<motion.div
-							animate={{ x: transitionValue }}
-							transition={{ delay: 1 }}
-							className="radioStationTitle"
-							style={{ left: TitleLocation }}
-						>
-							{props.radio}
-						</motion.div>
-					</div>
+				<BrowserView className="songName">
+					<motion.div
+						animate={{ x: transitionValue }}
+						transition={{ delay: 1 }}
+						className="radioStationTitle"
+						style={{ left: TitleLocation }}
+					>
+						{props.radio}
+					</motion.div>
 				</BrowserView>
-				<MobileView>
-					<div className="songName-mobile">
-						<motion.div
-							animate={{ x: transitionValue }}
-							transition={{ delay: 1 }}
-							className="radioStationTitle"
-							style={{ left: TitleLocation }}
-						>
-							{props.radio}
-						</motion.div>
-					</div>
+				<MobileView className="songName-mobile">
+					<motion.div
+						animate={{ x: transitionValue }}
+						transition={{ delay: 1 }}
+						className="radioStationTitle"
+						style={{ left: TitleLocation }}
+					>
+						{props.radio}
+					</motion.div>
 				</MobileView>
 
-				<BrowserView>
-					<div className="otherSoundsContainer">
-						<div className="allign">
-							<input className="soundDial"
-								type="range"
-								orient="vertical"
-								min={0}
-								max={1}
-								value={rainVolume}
-								onChange={event => {
-									rainChange(event.target.valueAsNumber)
-								}}
-								step={0.2}
-							/>
-							<div className="otherSounds">
-								<Tooltip title="Rain" placement="top">
-									<img src={rain} className="imgSizing" alt="" />
-								</Tooltip>
-							</div>
+				<BrowserView className="otherSoundsContainer">
+					<div className="allign">
+						<input className="soundDial"
+							type="range"
+							orient="vertical"
+							min={0}
+							max={1}
+							value={rainVolume}
+							onChange={event => {
+								rainChange(event.target.valueAsNumber)
+							}}
+							step={0.2}
+						/>
+						<div className="otherSounds">
+							<img src={rain} className="imgSizing" alt="" />
 						</div>
-						<div className="allign">
-							<input className="soundDial"
-								type="range"
-								orient="vertical"
-								min={0}
-								max={1}
-								value={oceanVolume}
-								onChange={event => {
-									setOceanVolume(event.target.valueAsNumber)
-								}}
-								step={0.2}
+					</div>
+					<div className="allign">
+						<input className="soundDial"
+							type="range"
+							orient="vertical"
+							min={0}
+							max={1}
+							value={oceanVolume}
+							onChange={event => {
+								setOceanVolume(event.target.valueAsNumber)
+							}}
+							step={0.2}
 
-							/>
-							<div className="otherSounds">
-								<Tooltip title="Ocean" placement="top">
-									<img src={waves} className="imgSizing" alt="" />
-								</Tooltip>
-							</div>
+						/>
+						<div className="otherSounds">
+							<img src={waves} className="imgSizing" alt="" />
 						</div>
-						<div className="allign">
-							<input className="soundDial"
-								type="range"
-								orient="vertical"
-								min={0}
-								max={1}
-								value={whiteNoiseVolume}
-								onChange={event => {
-									setWhiteNoiseVolume(event.target.valueAsNumber)
-								}}
-								step={0.2}
+					</div>
+					<div className="allign">
+						<input className="soundDial"
+							type="range"
+							orient="vertical"
+							min={0}
+							max={1}
+							value={whiteNoiseVolume}
+							onChange={event => {
+								setWhiteNoiseVolume(event.target.valueAsNumber)
+							}}
+							step={0.2}
 
-							/>
-							<div className="otherSounds">
-								<Tooltip title="City" placement="top">
-									<img src={WhiteNoise} className="imgSizing" alt="" />
-								</Tooltip>
-							</div>
+						/>
+						<div className="otherSounds">
+							<img src={WhiteNoise} className="imgSizing" alt="" />
 						</div>
 					</div>
 				</BrowserView>

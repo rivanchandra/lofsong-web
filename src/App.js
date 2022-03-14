@@ -232,167 +232,159 @@ function App() {
   return (
   <>
     <div className='interfaceContainer'>
-      <BrowserView>
-        <div className="radioContainer">
-          <div className="logo">
-            Listen Music
-          </div>
-          <div className="subHeading">
+      <BrowserView className="radioContainer">
+        <div className="logo">
+          Listen Music
+        </div>
+        <div className="subHeading">
 
-          </div>
-          <div className="radioStationsContainer">
+        </div>
+        <div className="radioStationsContainer">
+          
+        {/* <RadioStations
+          Lofi={andSoItBegins}
+          data={data}
+        /> */}
+
+        </div>
+        <div className='socialsContainer2'>
+          <div className='socials'>
             
-          {/* <RadioStations
-            Lofi={andSoItBegins}
-            data={data}
-          /> */}
+            <motion.div
+              whileHover={{ scale: 1.09 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => { window.open("https://github.com/rivanchandra") }}
+              className="link">
+              <img className="githubLogo" src={github} alt="" />
+            </motion.div>
 
-          </div>
-          <div className='socialsContainer2'>
-            <div className='socials'>
-              
-              <motion.div
-                whileHover={{ scale: 1.09 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => { window.open("https://github.com/rivanchandra") }}
-                className="link">
-                <img className="githubLogo" src={github} alt="" />
-              </motion.div>
-
-            </div>
           </div>
         </div>
       </BrowserView>
-      <MobileView>
-        <div className="radioContainer-mobile">
-          <div className="logo">
-            Listen Music
-          </div>
+      <MobileView className="radioContainer-mobile">
+        <div className="logo">
+          Listen Music
         </div>
       </MobileView>
 
-      <BrowserView>
-        <div className="audioControlContainer">
-          <div className="audioControl">
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={()=>handleChangeBackground()} className={muteCheck}>
-                <Tooltip title="Weather" placement="top">
-                  <img className="imgSizing" src={weather} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={()=>handleClickFullscreen()} className={muteCheck}>
-                <Tooltip title="Full Screen" placement="top">
-                  <img className="imgSizing" src={fullscreenIcon} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={()=>prevMusic()} className={muteCheck}>
-                <Tooltip title="Previous" placement="top">
-                  <img className="imgSizing" src={left} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={()=>suffleMusic()} className={muteCheck}>
-                <Tooltip title="Shuffle" placement="top">
-                  <img className="imgSizing" src={shuffleIcon} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={()=>nextMusic()} className={muteCheck}>
-                <Tooltip title="Next" placement="top">
-                  <img className="imgSizing" src={right} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handlePausePlaySwitch} className={BtnClass}>
-                <Tooltip title={BtnClass2==="playBtn"?"Play":"Pause"} placement="top">
-                  <img src={playPauseImg} className={BtnClass2} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={()=>loopFunction()} className={muteCheck}>
-                <Tooltip title="Loop This Song" placement="top">
-                  <img id={loopRef.current?"spin-loop":''} className={'imgSizing'} src={loopIcon} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handleMute} className={muteCheck}>
-                <Tooltip title="Sound" placement="top">
-                  <img className={muteCheck2} src={volumeImg} alt="" />
-                </Tooltip>
-            </motion.div>
-            <div >
-              <input className="volumeDial"
-                type="range"
-                min={0}
-                max={1}
-                value={volume}
-                step={0.01}
-                onChange={event => {
-                  setVolume(event.target.valueAsNumber)
-                }}
-              />
-            </div>
+      <BrowserView className="audioControlContainer">
+        <div className="audioControl">
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>handleChangeBackground()} className={muteCheck}>
+              <Tooltip title="Weather" placement="top">
+                <img className="imgSizing" src={weather} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>handleClickFullscreen()} className={muteCheck}>
+              <Tooltip title="Full Screen" placement="top">
+                <img className="imgSizing" src={fullscreenIcon} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>prevMusic()} className={muteCheck}>
+              <Tooltip title="Previous" placement="top">
+                <img className="imgSizing" src={left} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>suffleMusic()} className={muteCheck}>
+              <Tooltip title="Shuffle" placement="top">
+                <img className="imgSizing" src={shuffleIcon} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>nextMusic()} className={muteCheck}>
+              <Tooltip title="Next" placement="top">
+                <img className="imgSizing" src={right} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handlePausePlaySwitch} className={BtnClass}>
+              <Tooltip title={BtnClass2==="playBtn"?"Play":"Pause"} placement="top">
+                <img src={playPauseImg} className={BtnClass2} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>loopFunction()} className={muteCheck}>
+              <Tooltip title="Loop This Song" placement="top">
+                <img id={loopRef.current?"spin-loop":''} className={'imgSizing'} src={loopIcon} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleMute} className={muteCheck}>
+              <Tooltip title="Sound" placement="top">
+                <img className={muteCheck2} src={volumeImg} alt="" />
+              </Tooltip>
+          </motion.div>
+          <div >
+            <input className="volumeDial"
+              type="range"
+              min={0}
+              max={1}
+              value={volume}
+              step={0.01}
+              onChange={event => {
+                setVolume(event.target.valueAsNumber)
+              }}
+            />
           </div>
         </div>
       </BrowserView>
 
-      <MobileView>
-        <div className="audioControlContainer">
-          <div className="audioControl-mobile">
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handlePausePlaySwitch} className={BtnClass}>
-                <Tooltip title={BtnClass2==="playBtn"?"Play":"Pause"} placement="top">
-                  <img src={playPauseImg} className={BtnClass2} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={()=>loopFunction()} className={muteCheck}>
-                <Tooltip title="Loop This Song" placement="top">
-                  <img id={loopRef.current?"spin-loop":''} className={'imgSizing'} src={loopIcon} alt="" />
-                </Tooltip>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handleMute} className={muteCheck}>
-                <Tooltip title="Sound" placement="top">
-                  <img className={muteCheck2} src={volumeImg} alt="" />
-                </Tooltip>
-            </motion.div>
-            <div >
-              <input className="volumeDial"
-                type="range"
-                min={0}
-                max={1}
-                value={volume}
-                step={0.01}
-                onChange={event => {
-                  setVolume(event.target.valueAsNumber)
-                }}
-              />
-            </div>
+      <MobileView className="audioControlContainer">
+        <div className="audioControl-mobile">
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handlePausePlaySwitch} className={BtnClass}>
+              <Tooltip title={BtnClass2==="playBtn"?"Play":"Pause"} placement="top">
+                <img src={playPauseImg} className={BtnClass2} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={()=>loopFunction()} className={muteCheck}>
+              <Tooltip title="Loop This Song" placement="top">
+                <img id={loopRef.current?"spin-loop":''} className={'imgSizing'} src={loopIcon} alt="" />
+              </Tooltip>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.09 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleMute} className={muteCheck}>
+              <Tooltip title="Sound" placement="top">
+                <img className={muteCheck2} src={volumeImg} alt="" />
+              </Tooltip>
+          </motion.div>
+          <div >
+            <input className="volumeDial"
+              type="range"
+              min={0}
+              max={1}
+              value={volume}
+              step={0.01}
+              onChange={event => {
+                setVolume(event.target.valueAsNumber)
+              }}
+            />
           </div>
         </div>
       </MobileView>
