@@ -85,5 +85,29 @@ export const slow = [
     {
       stationName:"Hot Coffee",
       songName: "https://youtu.be/qbbADd5ZKCo"
-    }
+    },
+    {
+      stationName:"Journey End",
+      songName: "https://youtu.be/rJDx1_ooQms"
+    },
+    {
+      stationName:"Star Bright",
+      songName: "https://youtu.be/lCv6B0G1yE8"
+    },
+    {
+      stationName:"Sand Castle",
+      songName: "https://youtu.be/yLIqBltOaZM"
+    },
+    {
+      stationName:"Alien Sky",
+      songName: "https://youtu.be/GB9LFa6Sqhs"
+    },
+    {
+      stationName:"Balloon",
+      songName: "https://youtu.be/rFNbGsDukyg"
+    },
+    {
+      stationName:"Snooze Button",
+      songName: "https://youtu.be/lU1WtiO0K1M"
+    },
   ];
