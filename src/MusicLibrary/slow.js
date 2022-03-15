@@ -25,6 +25,7 @@ export const slow = [
     },
     {
       stationName:"Dreams come true",
+      songName: "https://youtu.be/0AmoVDaCwYI"
       // songName: dreams_come_true
     },
     {
