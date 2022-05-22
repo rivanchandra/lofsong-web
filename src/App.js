@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 //Icons
+import logo from './images/lofsong-logo.png';
 import github from './images/github.png';
 import play from './images/playBtn.png';
 import pauseImg from './images/pause.png';
@@ -234,7 +235,7 @@ function App() {
     <div className='interfaceContainer'>
       <BrowserView className="radioContainer">
         <div className="logo">
-          Listen Music
+          <img src={logo} width="200" />
         </div>
         <div className="subHeading">
 

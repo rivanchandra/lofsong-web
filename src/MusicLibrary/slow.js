@@ -110,4 +110,24 @@ export const slow = [
       stationName:"Snooze Button",
       songName: "https://youtu.be/lU1WtiO0K1M"
     },
+    {
+      stationName:"Life is strange",
+      songName: "https://youtu.be/kQIY67QulYY"
+    },
+    {
+      stationName:"Christmas Star",
+      songName: "https://youtu.be/FLlM3IEMcNQ"
+    },
+    {
+      stationName:"Christmas Chill",
+      songName: "https://youtu.be/6gmup4PIG8A"
+    },
+    {
+      stationName:"Stay at home for christmas",
+      songName: "https://youtu.be/VRmAIWtNIBU"
+    },
+    {
+      stationName:"Physical",
+      songName: "https://youtu.be/K_O9v8IhXwY"
+    },
   ];
