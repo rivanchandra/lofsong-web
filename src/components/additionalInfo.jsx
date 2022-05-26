@@ -93,6 +93,7 @@ const AdditionSettings = (props) => {
 								rainChange(event.target.valueAsNumber)
 							}}
 							step={0.2}
+
 						/>
 						<div className="otherSounds">
 							<img src={rain} className="imgSizing" alt="" />
