@@ -43,6 +43,12 @@ import {slow} from './MusicLibrary/slow.js';
 // let chillrainyday = "https://drive.google.com/file/d/1hep1kgXiDdRfIAdoDMvx9G17iJdVuBQO/preview";
 // let chillrainynight = "https://drive.google.com/file/d/1JMLx8gpxXb7Jz9X9hkUi8pOC0x5LpMDW/preview";
 
+//Google Analytic
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-F2Y3SLZLGZ");
+ReactGA.send("pageview");
+
 let lastPlayedVolume = 0;
 let first = true;
 
