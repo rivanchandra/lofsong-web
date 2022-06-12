@@ -154,4 +154,52 @@ export const slow = [
       stationName:"Coffee shop",
       songName: "https://youtu.be/iIrNTDUiapM"
     },
+    {
+      stationName:"Flourish",
+      songName: "https://youtu.be/OpczI6gnr0s"
+    },
+    {
+      stationName:"Afternoon nap",
+      songName: "https://youtu.be/2oVvBwvqTDM"
+    },
+    {
+      stationName:"Upbeat summer",
+      songName: "https://youtu.be/nHJ5oSXrLyk"
+    },
+    {
+      stationName:"Shopping spree",
+      songName: "https://youtu.be/e0DlbUq95EU"
+    },
+    {
+      stationName:"Up",
+      songName: "https://youtu.be/0MJvPUM-3Ok"
+    },
+    {
+      stationName:"Girl",
+      songName: "https://youtu.be/w1mXLPB2jFw"
+    },
+    {
+      stationName:"Sundae sunset",
+      songName: "https://youtu.be/ktOHGnXc-eI"
+    },
+    {
+      stationName:"Campfire vibes",
+      songName: "https://youtu.be/P9bcZuTC-3o"
+    },
+    {
+      stationName:"Tabula rasa",
+      songName: "https://youtu.be/cGw5HRzVznA"
+    },
+    {
+      stationName:"Cresent moon",
+      songName: "https://youtu.be/ZPm4_MtmN10"
+    },
+    {
+      stationName:"Cozy place",
+      songName: "https://youtu.be/vCD26onyU3U"
+    },
+    {
+      stationName:"Breathtaking",
+      songName: "https://youtu.be/F3I2xR5C2kU"
+    },
   ];
